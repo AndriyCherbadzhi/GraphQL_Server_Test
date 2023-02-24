@@ -1,0 +1,33 @@
+type Card {
+    _id: ID
+    name: String!
+    description: String
+    status: String
+    priority: String
+}
+
+input cardInput {
+    id: ID
+    name: String!
+    description: String
+    status: String
+    priority: String
+}
+
+input cardSearchInput {
+    id: ID
+    name: String!
+    status: String
+    priority: String
+}
+
+type Query {
+    cardSearch(input: cardSearchInput): [Card]
+    cardByID(id: ID!): Card
+}
+
+type Mutation {
+    createCard(input: cardInput): Card
+    updateCard(input: cardInput): Card
+    deleteCard(id: ID!): Card
+}
